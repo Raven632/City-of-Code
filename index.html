@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>City of Code</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<div class="app">
+
+    <!-- GAME AREA -->
+
+    <div class="game">
+        <div class="city-title">CITY OF CODE</div>
+
+        <!-- MAP -->
+
+        <div class="map">
+            <div class="building house"></div>
+            <div class="building tower"></div>
+            <div class="building factory"></div>
+            <div class="building house house2"></div>
+        </div>
+
+        <div class="coordinates">X: 0 | Y: 0</div>
+
+        <!-- BARBARA -->
+
+        <div class="barbara">
+            <div class="barbara-avatar">B</div>
+            <div class="dialogue">
+                <div class="barbara-name">BARBARA</div>
+                <div id="dialogue-text">Willkommen bei City of Code.</div>
+            </div>
+        </div>
+
+        <!-- INTRO -->
+
+        <div class="intro" id="intro">
+            <div id="name-screen">
+                <h2>Wie lautet dein Name?</h2>
+                <input type="text" id="player-name" placeholder="Dein Name">
+                <button id="start-button">Start</button>
+            </div>
+            
+            <div id="tutorial-screen" class="hidden">
+                <button id="next-button">Weiter →</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MONITOR -->
+
+    <div class="monitor-view">
+        <div class="monitor">
+            <div class="note note1">BAUE<br>DEINE STADT</div>
+            <div class="note note2">PYTHON<br>IST DEIN<br>WERKZEUG</div>
+            <div class="screen">
+                <div class="screen-header">CITY OF CODE OS</div>
+                <div class="task"><b>Aktuelle Aufgabe</b><br>Erkunde deine neue Stadt.</div>
+                <div class="editor"># Python Editor<br><br># Wird später implementiert</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
