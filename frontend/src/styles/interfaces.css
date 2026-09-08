@@ -1,0 +1,95 @@
+.monitor {
+    width: 150%;
+    min-height: calc(100vh - 90px);
+
+    margin-top: 15px;
+
+    background: #252525;
+    border: 8px solid #111;
+    border-radius: 12px;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.monitor-header {
+    height: 45px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 20px;
+
+    background: #151515;
+    border-bottom: 2px solid #444;
+}
+
+.monitor-screen {
+    padding: 25px;
+}
+
+.task-area {
+    margin-bottom: 20px;
+}
+
+.task-area h2 {
+    margin-top: 0;
+}
+
+.code-editor-placeholder {
+    height: 300px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    background: #181818;
+    border: 1px solid #555;
+    border-radius: 5px;
+
+    color: #888;
+}
+
+.code-editor-placeholder span {
+    font-size: 22px;
+}
+
+.code-editor-placeholder small {
+    margin-top: 8px;
+}
+
+.run-button {
+    margin-top: 15px;
+    padding: 10px 25px;
+
+    cursor: pointer;
+
+    background: #333;
+    color: white;
+    border: 1px solid #666;
+    border-radius: 4px;
+}
+
+.terminal {
+    margin-top: 25px;
+
+    background: #0d0d0d;
+    border: 1px solid #444;
+}
+
+.terminal-header {
+    padding: 8px 12px;
+    background: #202020;
+}
+
+.terminal-output {
+    min-height: 100px;
+    padding: 12px;
+
+    font-family: monospace;
+    color: #ccc;
+}
+
+.placeholder-page {
+    padding: 50px;
+}
