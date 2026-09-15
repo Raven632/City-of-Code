@@ -1,6 +1,7 @@
 .monitor {
     width: 150%;
-    min-height: calc(100vh - 90px);
+    height: calc(100vh - 90px);
+    min-height: 0;
     overflow: hidden;
 
     margin-top: 15px;
@@ -10,10 +11,14 @@
     border-radius: 12px;
 
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+
+    display: flex;
+    flex-direction: column;
 }
 
 .monitor-header {
     height: 45px;
+    flex-shrink: 0;
 
     display: flex;
     align-items: center;
@@ -25,9 +30,13 @@
 }
 
 .monitor-screen {
-    height: calc(100% - 45px);
+    flex: 1;
+    min-height: 0;
+
+    display: flex;
+    flex-direction: column;
+
     overflow-y: auto;
-    padding: 25px;
 }
 
 .task-area {
@@ -40,9 +49,22 @@
 
 .code-editor {
     height: 480px;
+    min-height: 480px;
+    max-height: 480px;
+
+    flex-shrink: 0;
+
     border: 1px solid #555;
     border-radius: 5px;
     overflow: hidden;
+}
+
+.code-editor .cm-editor {
+    height: 100%;
+}
+
+.code-editor .cm-scroller {
+    overflow: auto !important;
 }
 
 .code-editor-placeholder span {
