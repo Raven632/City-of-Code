@@ -11,6 +11,8 @@
     "vite": "^5.1.6"
   },
   "dependencies": {
+    "@codemirror/lang-python": "^6.2.1",
+    "codemirror": "^6.0.2",
     "phaser": "^3.80.1"
   },
   "allowScripts": {

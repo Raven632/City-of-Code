@@ -1,3 +1,4 @@
+import { createCodeMirror } from "./codemirror.js";
 export function createMonitor() {
     const monitor = document.createElement("div");
 
@@ -11,6 +12,9 @@ export function createMonitor() {
         <div class="monitor-screen">
 
             <div class="monitor-content">
+                <button class="run-button">
+                    Ausführen
+                </button>
 
                 <div class="task-area">
                     <h2>Aufgabe</h2>
@@ -18,19 +22,7 @@ export function createMonitor() {
                         Hier wird später die aktuelle Aufgabe angezeigt.
                     </p>
                 </div>
-
-                <!-- |================ CODE EDITOR PLACEHOLDER ================| -->
-                <!-- | CodeMirror 6 wird später hier integriert.              | -->
-                <!-- |========================================================| -->
-
-                <div class="code-editor-placeholder">
-                    <span>CodeMirror 6</span>
-                    <small>Editor placeholder</small>
-                </div>
-
-                <button class="run-button">
-                    Ausführen
-                </button>
+                <div class="code-editor" id="code-editor"></div>
 
                 <div class="terminal">
                     <div class="terminal-header">
@@ -46,6 +38,9 @@ export function createMonitor() {
 
         </div>
     `;
+    const editorContainer = monitor.querySelector("#code-editor");
+
+    createCodeMirror(editorContainer);
 
     return monitor;
 }
