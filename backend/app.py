@@ -1,20 +1,10 @@
 from flask import Flask
+from models import db
 
 app = Flask(__name__)
+app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///codequest.db"
+db.init_app(app)
 
-LEVELS = [
-    {"nummer": 1, "title": "Der erste Eintrag", "building": "bauamt"},
-    {"nummer": 2, "title": "Der Name der Stadt", "building": "ortsschild"},
-]
-
-@app.route("/api/ping")
-def ping():
-    return {"status": "ok"}
-
-@app.route("/api/levels")
-def levels():
-    return {"levels": LEVELS}
-
-
-if __name__ == "__main__":
-    app.run(debug=True)
+with app.app_context():
+    db.create_all()
+    print("Tabellen erstellt")
