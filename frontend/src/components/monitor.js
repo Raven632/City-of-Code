@@ -38,9 +38,21 @@ export function createMonitor() {
 
         </div>
     `;
-    const editorContainer = monitor.querySelector("#code-editor");
+    const editorContainer = monitor.querySelector(".code-editor");
+    const terminalOutput = monitor.querySelector(".terminal-output");
+    const runButton = monitor.querySelector(".run-button");
 
-    createCodeMirror(editorContainer);
+    const editor = createCodeMirror(editorContainer);
 
+    runButton.addEventListener("click", () => {
+        const code = editor.state.doc.toString();
+
+        terminalOutput.innerHTML = `
+            <div>> Code wird ausgeführt...</div>
+            <div>> ${code.replace(/\n/g, "<br>")}</div>
+        `;
+
+        console.log(code);
+    });
     return monitor;
 }

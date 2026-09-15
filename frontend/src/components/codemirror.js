@@ -7,6 +7,7 @@ export function createCodeMirror(parent) {
 request_registr["name"] = ""
 request_registr["password"] = ""
 request_registr["role"] = "student"
+request_registr["class_id"] = ""
 `;
 
     const state = EditorState.create({
