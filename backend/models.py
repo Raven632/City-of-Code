@@ -32,6 +32,7 @@ class Level(db.Model):
     start_code = db.Column(db.Text, nullable=True)
     building = db.Column(db.String(50), db.ForeignKey("building_types.code"), nullable=False)
     checker_function = db.Column(db.String(100), nullable=False)
+    coin_reward = db.Column(db.Integer, nullable=False, default=0)
 
 class Building(db.Model):
     __tablename__ = "buildings"
@@ -52,6 +53,8 @@ class BuildingType(db.Model):
     name = db.Column(db.String(50), unique=True, nullable=False)
     description = db.Column(db.Text, nullable=False)
     code = db.Column(db.String(50), nullable=False, unique=True)
+    category = db.Column(db.String(20), nullable=False)
+    price = db.Column(db.Integer, nullable=True)
 
 class Log(db.Model):
     __tablename__ = "logs"
