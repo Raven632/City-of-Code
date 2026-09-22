@@ -14,6 +14,7 @@ export default {
     accessKey: "Access Key",
 
     city: "City of Code",
+<<<<<<< HEAD
     learn: "Learn. Build. Create.",
 
     // Start
@@ -169,4 +170,7 @@ export default {
     classCode: "Klassencode",
 
     removeStudents: "Schüler streichen",
+=======
+    learn: "Learn. Build. Create."
+>>>>>>> b6c908f (Frontend: add topbar and localization)
 };

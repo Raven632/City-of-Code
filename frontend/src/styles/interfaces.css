@@ -5,6 +5,10 @@
 * {
     box-sizing: border-box;
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> b6c908f (Frontend: add topbar and localization)
 html,
 body {
     margin: 0;
@@ -29,6 +33,7 @@ button {
     cursor: pointer;
 }
 
+<<<<<<< HEAD
 .auth-page,
 .student-page,
 .teacher-page,
@@ -39,12 +44,15 @@ button {
     padding-top: 60px;
 }
 
+=======
+>>>>>>> b6c908f (Frontend: add topbar and localization)
 
 /* =========================================================
    TOPBAR
 ========================================================= */
 
 .topbar {
+<<<<<<< HEAD
     position: fixed;
     top: 0;
     left: 0;
@@ -54,16 +62,25 @@ button {
 
     box-sizing: border-box;
 
+=======
+    height: 60px;
+
+>>>>>>> b6c908f (Frontend: add topbar and localization)
     display: flex;
     align-items: center;
     justify-content: space-between;
 
     padding: 0 20px;
 
+<<<<<<< HEAD
     background: #ffffff;
     border-bottom: 2px solid #00B8F5;
 
     z-index: 1000;
+=======
+    background: #151515;
+    border-bottom: 2px solid #333;
+>>>>>>> b6c908f (Frontend: add topbar and localization)
 }
 
 .topbar h1 {
@@ -72,9 +89,16 @@ button {
 }
 
 .topbar span {
+<<<<<<< HEAD
     color: #68758A;
 }
 
+=======
+    color: #aaa;
+}
+
+
+>>>>>>> b6c908f (Frontend: add topbar and localization)
 /* =========================================================
    MONITOR
 ========================================================= */
@@ -523,6 +547,7 @@ button {
 
 
 /* =========================================================
+<<<<<<< HEAD
    TEACHER DASHBOARD
 ========================================================= */
 
@@ -975,6 +1000,133 @@ button {
     .teacher-page .monitor-drawer {
         width: 100vw;
     }
+=======
+   TEACHER
+========================================================= */
+
+.teacher-page {
+    width: 100%;
+    height: 100vh;
+
+    overflow: hidden;
+}
+
+.teacher-layout {
+    position: relative;
+
+    width: 100%;
+    height: calc(100vh - 60px);
+
+    display: block;
+
+    overflow: hidden;
+}
+
+.teacher-dashboard {
+    width: 100%;
+    height: 100%;
+
+    padding: 25px;
+
+    overflow-y: auto;
+}
+
+.dashboard-header {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 25px;
+}
+
+.dashboard-header h2 {
+    margin: 0 0 6px 0;
+}
+
+.dashboard-header p {
+    margin: 0;
+
+    color: #999;
+}
+
+.create-class-button {
+    padding: 10px 16px;
+
+    background: #333;
+    color: white;
+
+    border: 1px solid #555;
+    border-radius: 5px;
+}
+
+.create-class-button:hover {
+    background: #444;
+}
+
+
+/* =========================================================
+   TEACHER STATISTICS
+========================================================= */
+
+.teacher-statistics {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 15px;
+
+    margin-bottom: 30px;
+}
+
+.teacher-statistics .stat-card {
+    padding: 18px;
+
+    background: #1d1d1d;
+
+    border: 1px solid #444;
+    border-radius: 6px;
+}
+
+.teacher-statistics .stat-card span {
+    display: block;
+
+    color: #aaa;
+
+    font-size: 14px;
+}
+
+.teacher-statistics .stat-card strong {
+    display: block;
+
+    margin-top: 8px;
+
+    font-size: 24px;
+}
+
+
+/* =========================================================
+   TEACHER SECTIONS
+========================================================= */
+
+.classes-section,
+.students-section {
+    margin-top: 25px;
+}
+
+.section-header {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 15px;
+}
+
+.section-header h3 {
+    margin: 0;
+>>>>>>> b6c908f (Frontend: add topbar and localization)
 }
 
 
@@ -1454,6 +1606,7 @@ button {
 .language-arrow {
     font-size: 9px;
     margin-left: 2px;
+<<<<<<< HEAD
 }
 
 /* =========================================================
@@ -1913,4 +2066,6 @@ button {
 
 .remove-student-button:hover {
     background: #fecaca;
+=======
+>>>>>>> b6c908f (Frontend: add topbar and localization)
 }

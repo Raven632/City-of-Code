@@ -21,6 +21,7 @@ export function startApp() {
 
     router.setRoutes(routes);
 
+<<<<<<< HEAD
     const savedRoute = router.getSavedRoute();
 
     if (savedRoute) {
@@ -28,10 +29,18 @@ export function startApp() {
     } else {
         router.show("start");
     }
+=======
+    router.show("registration");
+>>>>>>> b6c908f (Frontend: add topbar and localization)
 }
 
 startApp();
 
+<<<<<<< HEAD
+=======
+startApp();
+
+>>>>>>> b6c908f (Frontend: add topbar and localization)
 
 // DEV TOOL
 const devTools = document.createElement("div");
