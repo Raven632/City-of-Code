@@ -1,19 +1,87 @@
-.monitor {
-    width: 150%;
-    height: calc(100vh - 90px);
-    min-height: 0;
-    overflow: hidden;
+/* =========================================================
+   GLOBAL
+========================================================= */
 
-    margin-top: 15px;
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: #111;
+    color: white;
+
+    font-family: Arial, sans-serif;
+}
+
+button,
+input,
+select {
+    font-family: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   TOPBAR
+========================================================= */
+
+.topbar {
+    height: 60px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 20px;
+
+    background: #151515;
+    border-bottom: 2px solid #333;
+}
+
+.topbar h1 {
+    margin: 0;
+    font-size: 22px;
+}
+
+.topbar span {
+    color: #aaa;
+}
+
+
+/* =========================================================
+   MONITOR
+========================================================= */
+
+.monitor {
+    width: 100%;
+    height: 100%;
+
+    min-width: 0;
+    min-height: 0;
+
+    margin: 0;
 
     background: #252525;
-    border: 8px solid #111;
-    border-radius: 12px;
 
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    border: none;
+    border-radius: 0;
+
+    box-shadow: none;
 
     display: flex;
     flex-direction: column;
+
+    overflow: hidden;
 }
 
 .monitor-header {
@@ -31,10 +99,13 @@
 
 .monitor-screen {
     flex: 1;
+
     min-height: 0;
 
     display: flex;
     flex-direction: column;
+
+    padding: 20px;
 
     overflow-y: auto;
 }
@@ -56,6 +127,7 @@
 
     border: 1px solid #555;
     border-radius: 5px;
+
     overflow: hidden;
 }
 
@@ -77,36 +149,965 @@
 
 .run-button {
     margin-top: 15px;
-    padding: 10px 25px;
 
-    cursor: pointer;
+    padding: 10px 25px;
 
     background: #333;
     color: white;
+
     border: 1px solid #666;
     border-radius: 4px;
+}
+
+.run-button:hover {
+    background: #444;
 }
 
 .terminal {
     margin-top: 40px;
 
     background: #0d0d0d;
+
     border: 1px solid #444;
 }
 
 .terminal-header {
     padding: 8px 12px;
+
     background: #202020;
+
+    border-bottom: 1px solid #333;
 }
 
 .terminal-output {
     min-height: 150px;
+
     padding: 12px;
 
     font-family: monospace;
     color: #ccc;
+
+    white-space: pre-wrap;
 }
 
-.placeholder-page {
-    padding: 50px;
+
+/* =========================================================
+   STUDENT
+========================================================= */
+
+.student-page {
+    width: 100%;
+    min-height: 100vh;
+}
+
+.student-layout {
+    display: grid;
+
+    grid-template-columns: 60% 40%;
+
+    height: calc(100vh - 60px);
+
+    overflow: hidden;
+}
+
+.city-container {
+    min-width: 0;
+    min-height: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    background: #1b1b1b;
+
+    overflow: hidden;
+}
+
+.city-header {
+    height: 50px;
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 20px;
+
+    background: #151515;
+
+    border-bottom: 2px solid #333;
+}
+
+.city-header h2 {
+    margin: 0;
+}
+
+.city-map {
+    flex: 1;
+
+    position: relative;
+
+    overflow: hidden;
+
+    background: #222;
+}
+
+.city-placeholder {
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    color: #aaa;
+}
+
+.city-placeholder h2 {
+    margin-bottom: 10px;
+}
+
+.city-placeholder p {
+    margin: 0;
+}
+
+.monitor-container {
+    min-width: 0;
+    min-height: 0;
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   AUTH / REGISTRATION
+========================================================= */
+
+.auth-page {
+    width: 100%;
+    height: 100vh;
+
+    display: grid;
+
+    grid-template-columns: 60% 40%;
+    grid-template-rows: 52px 1fr;
+
+    overflow: hidden;
+}
+
+.auth-art {
+    position: relative;
+
+    background-image:
+        url("/assets/city-background.jpg");
+
+    background-size: cover;
+    background-position: center;
+
+    background-color: #111;
+}
+
+.auth-art-content {
+    position: absolute;
+
+    left: 50px;
+    bottom: 50px;
+
+    color: white;
+
+    text-shadow:
+        0 3px 15px #000;
+}
+
+.auth-art-content h1 {
+    margin: 0;
+
+    font-size: 48px;
+}
+
+.auth-art-content p {
+    margin-top: 8px;
+
+    font-size: 18px;
+
+    color: #ccc;
+}
+
+.auth-panel {
+    height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 40px;
+
+    background: #181818;
+
+    border-left: 1px solid #333;
+}
+
+.auth-box {
+    width: 100%;
+    max-width: 420px;
+}
+
+.auth-header {
+    margin-bottom: 30px;
+}
+
+.auth-header h2 {
+    margin: 0;
+
+    font-size: 30px;
+}
+
+.auth-header p {
+    margin-top: 8px;
+
+    color: #999;
+}
+
+.auth-page > .topbar {
+    grid-column: 1 / -1;
+    grid-row: 1;
+}
+
+.auth-art {
+    grid-column: 1;
+    grid-row: 2;
+}
+
+.auth-panel {
+    grid-column: 2;
+    grid-row: 2;
+
+    height: auto;
+}
+
+
+/* =========================================================
+   AUTH TABS
+========================================================= */
+
+.auth-tabs {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    margin-bottom: 25px;
+
+    border-bottom: 1px solid #444;
+}
+
+.auth-tab {
+    padding: 12px;
+
+    background: none;
+
+    color: #888;
+
+    border: none;
+    border-bottom: 2px solid transparent;
+
+    cursor: pointer;
+
+    font-size: 15px;
+}
+
+.auth-tab.active {
+    color: white;
+
+    border-bottom-color: white;
+}
+
+
+/* =========================================================
+   AUTH FORM
+========================================================= */
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+
+    gap: 18px;
+}
+
+.auth-form label {
+    display: flex;
+    flex-direction: column;
+
+    gap: 7px;
+
+    color: #ddd;
+
+    font-size: 14px;
+}
+
+.auth-form input,
+.auth-form select {
+    width: 100%;
+
+    padding: 12px;
+
+    background: #101010;
+
+    color: white;
+
+    border: 1px solid #444;
+    border-radius: 5px;
+
+    outline: none;
+}
+
+.auth-form input:focus,
+.auth-form select:focus {
+    border-color: #777;
+}
+
+.auth-submit {
+    margin-top: 8px;
+
+    padding: 12px;
+
+    background: #333;
+
+    color: white;
+
+    border: 1px solid #555;
+    border-radius: 5px;
+
+    cursor: pointer;
+
+    font-size: 15px;
+}
+
+.auth-submit:hover {
+    background: #3d3d3d;
+}
+
+.auth-status {
+    min-height: 20px;
+
+    margin-top: 15px;
+
+    color: #aaa;
+
+    font-size: 14px;
+}
+
+.access-key-field,
+.class-code-field {
+    width: 100%;
+}
+
+
+/* =========================================================
+   TEACHER
+========================================================= */
+
+.teacher-page {
+    width: 100%;
+    height: 100vh;
+
+    overflow: hidden;
+}
+
+.teacher-layout {
+    position: relative;
+
+    width: 100%;
+    height: calc(100vh - 60px);
+
+    display: block;
+
+    overflow: hidden;
+}
+
+.teacher-dashboard {
+    width: 100%;
+    height: 100%;
+
+    padding: 25px;
+
+    overflow-y: auto;
+}
+
+.dashboard-header {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 25px;
+}
+
+.dashboard-header h2 {
+    margin: 0 0 6px 0;
+}
+
+.dashboard-header p {
+    margin: 0;
+
+    color: #999;
+}
+
+.create-class-button {
+    padding: 10px 16px;
+
+    background: #333;
+    color: white;
+
+    border: 1px solid #555;
+    border-radius: 5px;
+}
+
+.create-class-button:hover {
+    background: #444;
+}
+
+
+/* =========================================================
+   TEACHER STATISTICS
+========================================================= */
+
+.teacher-statistics {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 15px;
+
+    margin-bottom: 30px;
+}
+
+.teacher-statistics .stat-card {
+    padding: 18px;
+
+    background: #1d1d1d;
+
+    border: 1px solid #444;
+    border-radius: 6px;
+}
+
+.teacher-statistics .stat-card span {
+    display: block;
+
+    color: #aaa;
+
+    font-size: 14px;
+}
+
+.teacher-statistics .stat-card strong {
+    display: block;
+
+    margin-top: 8px;
+
+    font-size: 24px;
+}
+
+
+/* =========================================================
+   TEACHER SECTIONS
+========================================================= */
+
+.classes-section,
+.students-section {
+    margin-top: 25px;
+}
+
+.section-header {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 15px;
+}
+
+.section-header h3 {
+    margin: 0;
+}
+
+
+/* =========================================================
+   ADMIN
+========================================================= */
+
+.admin-page {
+    width: 100%;
+    height: 100vh;
+
+    overflow: hidden;
+}
+
+.admin-layout {
+    position: relative;
+
+    width: 100%;
+    height: calc(100vh - 60px);
+
+    display: block;
+
+    overflow: hidden;
+}
+
+.admin-dashboard {
+    width: 100%;
+    height: 100%;
+
+    padding: 25px;
+
+    overflow-y: auto;
+}
+
+
+/* =========================================================
+   ADMIN STATISTICS
+========================================================= */
+
+.admin-statistics {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 15px;
+
+    margin: 25px 0;
+}
+
+.admin-statistics .stat-card {
+    padding: 18px;
+
+    background: #1d1d1d;
+
+    border: 1px solid #444;
+    border-radius: 6px;
+}
+
+.admin-statistics .stat-card span {
+    display: block;
+
+    color: #aaa;
+
+    font-size: 14px;
+}
+
+.admin-statistics .stat-card strong {
+    display: block;
+
+    margin-top: 8px;
+
+    font-size: 24px;
+}
+
+
+/* =========================================================
+   ADMIN ACCOUNTS
+========================================================= */
+
+.accounts-section {
+    margin-top: 20px;
+}
+
+.accounts-section .section-header {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 15px;
+}
+
+.accounts-section h3 {
+    margin: 0 0 5px 0;
+}
+
+.accounts-section p {
+    margin: 0;
+
+    color: #999;
+}
+
+
+/* =========================================================
+   TABLE
+========================================================= */
+
+.table-container {
+    width: 100%;
+
+    overflow-x: auto;
+
+    background: #1d1d1d;
+
+    border: 1px solid #444;
+    border-radius: 6px;
+}
+
+.table-container table {
+    width: 100%;
+
+    border-collapse: collapse;
+}
+
+.table-container th,
+.table-container td {
+    padding: 12px;
+
+    text-align: left;
+
+    border-bottom: 1px solid #333;
+}
+
+.table-container th {
+    background: #151515;
+}
+
+.table-container td {
+    color: #ddd;
+}
+
+.table-container tbody tr:last-child td {
+    border-bottom: none;
+}
+
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.refresh-accounts,
+.delete-account,
+.view-class {
+    padding: 7px 12px;
+
+    background: #333;
+    color: white;
+
+    border: 1px solid #555;
+    border-radius: 4px;
+}
+
+.refresh-accounts:hover,
+.delete-account:hover,
+.view-class:hover {
+    background: #444;
+}
+
+
+/* =========================================================
+   SLIDE-OUT MONITOR
+   TEACHER / ADMIN
+========================================================= */
+
+.monitor-drawer {
+    position: fixed;
+
+    top: 60px;
+    right: 0;
+
+    width: 40%;
+    height: calc(100vh - 60px);
+
+    z-index: 1000;
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   OPEN STRIP
+========================================================= */
+
+.monitor-open {
+    position: fixed;
+
+    top: 50%;
+    right: 0;
+
+    width: 32px;
+    height: 100px;
+
+    transform: translateY(-50%);
+
+    padding: 0;
+
+    background: #151515;
+    color: white;
+
+    border: 1px solid #444;
+    border-right: none;
+
+    border-radius: 8px 0 0 8px;
+
+    font-size: 25px;
+
+    cursor: pointer;
+
+    z-index: 1100;
+
+    pointer-events: auto;
+}
+
+.monitor-drawer.open .monitor-open {
+    opacity: 0;
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   MONITOR PANEL
+========================================================= */
+
+.monitor-panel {
+    position: absolute;
+
+    top: 0;
+    right: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: #252525;
+
+    border-left: 8px solid #111;
+
+    box-sizing: border-box;
+
+    transform: translateX(100%);
+
+    transition: transform 0.3s ease;
+
+    pointer-events: none;
+
+    overflow: hidden;
+}
+
+.monitor-drawer.open .monitor-panel {
+    transform: translateX(0);
+    pointer-events: auto;
+}
+
+
+/* =========================================================
+   CLOSE BUTTON
+========================================================= */
+
+.monitor-close {
+    position: absolute;
+
+    top: 10px;
+    right: 10px;
+
+    z-index: 10;
+
+    width: 32px;
+    height: 32px;
+
+    padding: 0;
+
+    background: #222;
+
+    color: white;
+
+    border: 1px solid #555;
+    border-radius: 5px;
+
+    font-size: 22px;
+    line-height: 1;
+}
+
+.monitor-close:hover {
+    background: #333;
+}
+
+
+/* =========================================================
+   MONITOR INSIDE DRAWER
+========================================================= */
+
+.monitor-drawer .monitor {
+    width: 100%;
+    height: 100%;
+
+    margin: 0;
+
+    border: none;
+    border-radius: 0;
+
+    box-shadow: none;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .student-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .student-layout .monitor-container {
+        display: none;
+    }
+
+    .teacher-statistics {
+        grid-template-columns: 1fr;
+    }
+
+    .admin-statistics {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .monitor-drawer {
+        width: 70%;
+    }
+
+    .auth-page {
+        grid-template-columns: 1fr;
+    }
+
+    .auth-art {
+        display: none;
+    }
+
+    .auth-panel {
+        width: 100%;
+    }
+}
+
+.class-row {
+    cursor: pointer;
+}
+
+.class-row:hover {
+    background: #292929;
+}
+.topbar {
+    height: 50px;
+    width: 100%;
+    box-sizing: border-box;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 7%;
+
+    background: #ffffff;
+    border-bottom: 2px solid #00aee0;
+}
+
+.topbar-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-icon {
+    color: #00aee0;
+    font-size: 25px;
+}
+
+.logo-text {
+    font-size: 23px;
+    font-weight: 800;
+    color: #202235;
+}
+
+.logo-text b {
+    color: #00aee0;
+}
+
+.logo-de {
+    color: #9aa0a6;
+    margin-left: 3px;
+}
+
+.logo-code {
+    color: #00aee0;
+    font-size: 28px;
+    font-weight: 500;
+}
+
+.topbar-right {
+    display: flex;
+    align-items: center;
+}
+
+.language-selector {
+    position: relative;
+}
+
+.language-button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 7px 12px;
+
+    background: white;
+    border: 1px solid #dfe3e8;
+    border-radius: 20px;
+
+    cursor: pointer;
+}
+
+.language-menu {
+    position: absolute;
+    top: 45px;
+    right: 0;
+
+    display: none;
+
+    padding: 6px;
+
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+
+    z-index: 2000;
+}
+
+.language-menu.open {
+    display: block;
+}
+
+.language-option {
+    display: block;
+    width: 130px;
+
+    padding: 8px;
+
+    border: none;
+    background: white;
+
+    text-align: left;
+    cursor: pointer;
+}
+
+.language-option:hover {
+    background: #f2f2f2;
+}
+
+.language-button:hover {
+    background: #f5f7f9;
+}
+
+.language-flag {
+    font-size: 18px;
+}
+
+.language-arrow {
+    font-size: 9px;
+    margin-left: 2px;
 }
