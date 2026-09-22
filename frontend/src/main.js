@@ -18,9 +18,44 @@ const routes = {
 export function startApp() {
     router.setRoutes(routes);
 
-    // Start screen
     router.show("registration");
 }
 
 
 startApp();
+
+
+// DEV TOOL
+const devTools = document.createElement("div");
+
+devTools.innerHTML = `
+    <div class="dev-tools">
+        <strong>DEV ROLE SWITCH</strong>
+
+        <button data-role="registration">
+            Registration
+        </button>
+
+        <button data-role="student">
+            Student
+        </button>
+
+        <button data-role="teacher">
+            Teacher
+        </button>
+
+        <button data-role="admin">
+            AdminGod
+        </button>
+    </div>
+`;
+
+devTools.querySelectorAll("button").forEach(button => {
+
+    button.addEventListener("click", () => {
+        router.show(button.dataset.role);
+    });
+
+});
+
+document.body.appendChild(devTools);
