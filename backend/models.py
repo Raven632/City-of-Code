@@ -21,6 +21,7 @@ class User(db.Model):
     city_name = db.Column(db.String(40), nullable=True)  # wird erst in Level 2 gesetzt
     coin_balance = db.Column(db.Integer, nullable=False, default=0)
     created_at = db.Column(db.DateTime, nullable=False, default=utcnow)
+    last_active_at = db.Column(db.DateTime, nullable=True)  # null = noch nie aktiv gewesen
 
 
 class SchoolClass(db.Model):
@@ -74,6 +75,7 @@ class BuildingInstance(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
     building_code = db.Column(db.String(50), db.ForeignKey("building_types.code"), nullable=False)
+    level_id = db.Column(db.Integer, db.ForeignKey("levels.id"), nullable=False)  # aus welchem Level freigeschaltet
     instance_number = db.Column(db.Integer, nullable=False)  # "Wohnhaus #7"
     tile_x = db.Column(db.Integer, nullable=True)
     tile_y = db.Column(db.Integer, nullable=True)

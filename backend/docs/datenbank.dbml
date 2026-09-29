@@ -1,0 +1,132 @@
+// CodeQuest: City of Code - Datenbankentwurf (AP03)
+// Visualisierung: Inhalt auf https://dbdiagram.io einfuegen
+// Quelle: backend/models.py
+
+Project CityOfCode {
+  database_type: 'SQLite'
+  Note: 'Flask + SQLAlchemy. Katalogtabellen sind fuer alle Spieler gleich, Spielstandtabellen gehoeren je einem Nutzer.'
+}
+
+// ---------- Nutzer und Klassen ----------
+
+Table users {
+  id integer [pk, increment]
+  username varchar(80) [unique, not null]
+  password_hash varchar(255) [not null]
+  role varchar(20) [not null, default: 'student', note: 'student | teacher']
+  class_id integer [null, note: 'nur Schueler, Lehrer = NULL']
+  city_name varchar(40) [null, note: 'wird in Level 2 gesetzt']
+  coin_balance integer [not null, default: 0, note: 'nur Kosmetik']
+  created_at datetime [not null, default: `now()`]
+  last_active_at datetime [null, note: 'NULL = noch nie aktiv']
+}
+
+Table classes {
+  id integer [pk, increment]
+  name varchar(80) [not null]
+  class_code varchar(20) [unique, not null, note: 'Code fuer die Registrierung (A01)']
+  teacher_id integer [not null]
+  created_at datetime [not null, default: `now()`]
+}
+
+// ---------- Katalog (gleich fuer alle Spieler) ----------
+
+Table levels {
+  id integer [pk, increment]
+  number integer [unique, not null, note: '1-20']
+  title varchar(100) [not null]
+  chapter integer [not null, note: '1-4']
+  python_week integer [not null, note: '1-6']
+  validator_key varchar(100) [not null, note: 'z. B. level_01']
+  coin_reward integer [not null, default: 0]
+}
+
+Table building_types {
+  code varchar(50) [pk, note: 'technische ID, z. B. wohnhaus']
+  name varchar(80) [not null]
+  category varchar(20) [not null, note: 'main = Pflichtobjekt']
+  width integer [not null, note: 'Tiles']
+  height integer [not null, note: 'Tiles']
+  max_count integer [null]
+  price integer [null, note: 'NULL = kostenlos (Pflichtobjekte)']
+  requires_access boolean [not null, default: false]
+  asset_key varchar(80) [not null]
+}
+
+Table level_unlocks {
+  level_id integer [not null]
+  building_code varchar(50) [not null]
+  count integer [not null, default: 1]
+
+  indexes {
+    (level_id, building_code) [pk]
+  }
+  Note: 'n:m - welches Level schaltet wie viele Gebaeude welchen Typs frei'
+}
+
+// ---------- Spielstand (je Nutzer) ----------
+
+Table building_instances {
+  id integer [pk, increment]
+  user_id integer [not null]
+  building_code varchar(50) [not null]
+  level_id integer [not null, note: 'aus welchem Level freigeschaltet']
+  instance_number integer [not null, note: 'Wohnhaus #7']
+  tile_x integer [null, note: 'NULL = noch nicht platziert']
+  tile_y integer [null]
+  created_at datetime [not null, default: `now()`]
+  updated_at datetime [not null, default: `now()`]
+
+  indexes {
+    (user_id, building_code, instance_number) [unique, name: 'uq_instance']
+    user_id [name: 'ix_instance_user']
+  }
+}
+
+Table level_progress {
+  id integer [pk, increment]
+  user_id integer [not null]
+  level_id integer [not null]
+  attempts integer [not null, default: 0]
+  hints_used integer [not null, default: 0]
+  reward_claimed boolean [not null, default: false]
+  code_passed_at datetime [null]
+  completed_at datetime [null]
+  updated_at datetime [not null, default: `now()`]
+
+  indexes {
+    (user_id, level_id) [unique, name: 'uq_progress']
+  }
+  Note: 'Status wird aus code_passed_at / completed_at berechnet, nicht gespeichert'
+}
+
+// ---------- Beziehungen ----------
+
+Ref: users.class_id > classes.id
+Ref: classes.teacher_id > users.id
+
+Ref: level_unlocks.level_id > levels.id
+Ref: level_unlocks.building_code > building_types.code
+
+Ref: building_instances.user_id > users.id
+Ref: building_instances.building_code > building_types.code
+Ref: building_instances.level_id > levels.id
+
+Ref: level_progress.user_id > users.id
+Ref: level_progress.level_id > levels.id
+
+TableGroup nutzer {
+  users
+  classes
+}
+
+TableGroup katalog {
+  levels
+  building_types
+  level_unlocks
+}
+
+TableGroup spielstand {
+  building_instances
+  level_progress
+}
