@@ -2,12 +2,14 @@ import { router } from "./core/router.js";
 import { appState } from "./core/appState.js";
 
 import { showRegistration } from "./registration/registration.js";
+import { showStart } from "./start/start.js";
 import { showStudent } from "./student/student.js";
 import { showTeacher } from "./teacher/teacher.js";
 import { showAdmin } from "./admin/admin.js";
 
 
 const routes = {
+    start: showStart,
     registration: showRegistration,
     student: showStudent,
     teacher: showTeacher,
@@ -16,11 +18,17 @@ const routes = {
 
 
 export function startApp() {
+
     router.setRoutes(routes);
 
-    router.show("registration");
-}
+    const savedRoute = router.getSavedRoute();
 
+    if (savedRoute) {
+        router.show(savedRoute);
+    } else {
+        router.show("start");
+    }
+}
 
 startApp();
 
