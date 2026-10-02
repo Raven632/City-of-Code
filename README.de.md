@@ -7,7 +7,7 @@ direkt im Browser, und mit jeder gelösten Aufgabe wächst die eigene kleine Sta
 ein Rathaus, eine Feuerwehr, ein Krankenhaus. Die vier Kapitel folgen dem üblichen Aufbau eines
 Python-Kurses: Variablen, Bedingungen, Schleifen, Funktionen.
 
-Wir entwickeln das Spiel als Schulprojekt an der Friedrich-Dessauer-Schule in Limburg (Klasse BFI 11),
+Wir entwickeln das Spiel als Schulprojekt an der Friedrich-Dessauer-Schule in Limburg (Klasse BFI 12),
 von August 2026 bis zur Abgabe am 22.03.2027.
 
 ## Stand
