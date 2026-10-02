@@ -6,7 +6,7 @@ A browser game for learning Python at school. You solve tasks in a code editor r
 and every solved task grows your own small city: houses, a town hall, a fire station, a hospital.
 The four chapters follow the usual order of a Python course: variables, conditions, loops, functions.
 
-We're building it as a school project at the Friedrich-Dessauer-Schule in Limburg (class BFI 11),
+We're building it as a school project at the Friedrich-Dessauer-Schule in Limburg (class BFI 12),
 from August 2026 until the hand-in on 22 March 2027.
 
 ## Where we are
