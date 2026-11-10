@@ -1,10 +1,27 @@
 from flask import Blueprint, jsonify, request
 from werkzeug.security import generate_password_hash, check_password_hash
-from flask_jwt_extended import create_access_token
-
+from flask_jwt_extended import create_access_token, jwt_required, get_jwt_identity
 from models import db, User, SchoolClass
 
 bp = Blueprint("auth", __name__)
+
+@bp.get("/auth/me")
+@jwt_required()
+def me():
+    user_id = get_jwt_identity()          # строка, например "3"
+    # TODO 1: достать User по id
+
+    user = db.session.get(User, int(user_id))
+    
+    
+    #   подсказка: db.session.get(User, int(user_id))
+    # TODO 2: если user нет (например, удалён после выдачи токена) -> 404
+
+    if not user :
+        return jsonify ({"error": "Benutzer nicht gefunden"}), 404
+
+    # TODO 3: вернуть JSON: id, username, role, class_id, city_name, coin_balance
+    return jsonify({"id": user.id, "username": user.username, "role": user.role, "class_id": user.class_id, "city_name": user.city_name, "coin_balance": user.coin_balance})
 
 @bp.post("/auth/register")
 def register():
