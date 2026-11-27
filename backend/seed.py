@@ -1,5 +1,7 @@
-from app import app
+from app import create_app
 from models import db, User, SchoolClass, BuildingType, Level, LevelUnlock
+
+app = create_app()
 
 # Gebaeudetypen: (code, name, anzahl, groesse)
 # Quelle: Production-Dokument Abschnitt 13 / Leon Abschnitt 5
