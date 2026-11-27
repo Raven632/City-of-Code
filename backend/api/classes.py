@@ -45,7 +45,7 @@ def create_class():
     db.session.commit()
 
     # TODO 5: вернуть id, name, class_code -> 201
-    return jsonify({"id": school_class.id, "name": school_class.name, "code": school_class.class_code}), 201
+    return jsonify({"id": school_class.id, "name": school_class.name, "class_code": school_class.class_code}), 201
 
 
 @bp.get("/classes")
